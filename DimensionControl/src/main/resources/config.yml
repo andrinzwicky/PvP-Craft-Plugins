@@ -1,0 +1,17 @@
+# ============================================================================
+#  DimensionControl configuration
+# ============================================================================
+#
+#  State is persisted here and survives restarts. You can edit this file and
+#  run /dimension reload, or change it live with /dimension enable|disable.
+#
+#  Messages support legacy '&' colour codes, e.g. "&cThe Nether is closed!".
+# ============================================================================
+
+# Whether each dimension is currently enabled.
+nether-enabled: true
+end-enabled: true
+
+# Shown to players who try to enter a disabled dimension (or who are evacuated).
+nether-disabled-message: "The Nether is currently disabled."
+end-disabled-message: "The End is currently disabled."

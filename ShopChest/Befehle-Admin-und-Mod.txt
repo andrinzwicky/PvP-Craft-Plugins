@@ -1,0 +1,145 @@
+============================================================
+ ShopChest - Befehle fuer ADMINS & MODERATOREN
+============================================================
+ Diese Liste enthaelt ALLE Befehle (Admin + Spieler).
+ Texte erscheinen im Spiel in Farbe (MiniMessage).
+============================================================
+
+
+------------------------------------------------------------
+ BERECHTIGUNGEN
+------------------------------------------------------------
+ shopchest.admin   -> Zugriff auf /shopplot
+                      (Standard: nur OP)
+ /shopconfigurator -> shopchest.admin ODER Owner/Admin/Developer
+                      (siehe Abschnitt Konfigurator unten)
+
+ RANG-BYPASS (ueber RankManager, falls vorhanden):
+ Spieler mit einem dieser Rechte duerfen Shops auf JEDEM
+ Plot einrichten, bearbeiten und abbauen:
+   - rankmanager.rank.moderator
+   - rankmanager.rank.developer
+   - rankmanager.rank.admin
+   - rankmanager.rank.owner
+
+ WICHTIG fuer MODERATOREN:
+ Der Rang-Bypass erlaubt das Verwalten/Abbauen von Shops.
+ Der Befehl /shopplot braucht aber zusaetzlich das Recht
+ "shopchest.admin". Ohne dieses Recht kann ein Mod zwar Shops
+ bearbeiten, aber keine Plots erstellen/zuweisen.
+ /shopconfigurator give ist fuer Mods GESPERRT - nur
+ Owner/Admin/Developer (oder shopchest.admin) duerfen den
+ Konfigurator ausgeben.
+
+
+------------------------------------------------------------
+ ADMIN-BEFEHLE: PLOTS  (/shopplot)
+------------------------------------------------------------
+ /shopplot wand
+     Gibt dir den Auswahl-Spaten (Selektor).
+     Linksklick auf Block  = Position 1
+     Rechtsklick auf Block = Position 2
+
+ /shopplot create <id>
+     Erstellt ein Plot aus deiner aktuellen Auswahl.
+     <id> = frei waehlbarer Name, z.B. markt1
+
+ /shopplot assign <id> <spieler>
+     Weist das Plot einem Spieler zu (= "Kauf").
+     Der Spieler wird damit Besitzer.
+
+ /shopplot delete <id>
+     Loescht das Plot und alle zugehoerigen Shops.
+
+ /shopplot list
+     Zeigt alle Plots mit Besitzer und Shop-Anzahl.
+
+ /shopplot info <id>
+     Zeigt Details: Welt, Eckpunkte, Besitzer,
+     Mitglieder und Anzahl der Shops.
+
+
+------------------------------------------------------------
+ KONFIGURATOR AUSGEBEN  (/shopconfigurator)
+------------------------------------------------------------
+ /shopconfigurator give <spieler>     (Alias: /shopconfig)
+     Gibt dem Spieler den Gegenstand "Shop Konfigurator".
+     Damit richtet der Spieler seine Shop-Truhen ein.
+
+ BERECHTIGUNG: nur OWNER / ADMIN / DEVELOPER
+     -> shopchest.admin ODER einer dieser Raenge:
+          rankmanager.rank.owner
+          rankmanager.rank.admin
+          rankmanager.rank.developer
+     MODERATOREN duerfen den Konfigurator NICHT ausgeben.
+     (Ohne RankManager zaehlt nur shopchest.admin.)
+
+ HINWEIS: Der Konfigurator ist auch CRAFTBAR (siehe unten),
+ der Befehl ist also optional. Anders ist er NICHT
+ erhaeltlich (nur Crafting oder dieser Befehl).
+
+
+------------------------------------------------------------
+ CRAFTING-REZEPT: SHOP KONFIGURATOR
+------------------------------------------------------------
+     I I I
+     I C I     I = IRON_INGOT   C = CHEST (Truhe)
+     I I I
+     Ergebnis: 1x Shop Konfigurator
+     (8 Eisenbarren ringsum eine Truhe in der Mitte)
+
+
+------------------------------------------------------------
+ ABLAUF FUER ADMINS (Schritt fuer Schritt)
+------------------------------------------------------------
+ 1. /shopplot wand
+ 2. Linksklick = Ecke 1, Rechtsklick = Ecke 2
+ 3. /shopplot create <id>
+ 4. /shopplot assign <id> <spieler>
+ 5. /shopconfigurator give <spieler>
+ -> Der Spieler kann jetzt Truhen auf dem Plot einrichten.
+
+
+============================================================
+ SPIELER-BEFEHLE (gelten auch fuer Admins/Mods)
+============================================================
+
+ /shop
+     Oeffnet die Shop-Uebersicht des Spielers.
+     - Zeigt alle eigenen Shops (anklickbar = bearbeiten)
+     - Knopf "Mitglied einladen": Spielername im Chat
+       eingeben -> dieser darf die Shops ansehen (nicht
+       bearbeiten)
+
+ KEIN Befehl noetig (ueber Gegenstaende / Klicks):
+
+ Shop einrichten:
+     Konfigurator in die Hand nehmen und mit RECHTSKLICK
+     auf eine Truhe auf dem EIGENEN Plot klicken.
+     -> oeffnet das Menue "Shop einrichten":
+        Slot 1: Verkaufs-Item  (Klick, dann Item im
+                Inventar anklicken; Stueckzahl = Menge
+                pro Kauf)
+        Slot 2: Preis          (Klick, Betrag im Chat)
+        Slot 3: Waehrung       (Links-/Rechtsklick wechseln)
+        Slot 4: Vorrat         (Anzeige des Lagerbestands)
+        Slot 5: Aktiv/Inaktiv  (Klick zum Umschalten)
+        Slot 6: Loeschen       (Shift-Klick zum Bestaetigen)
+
+ Vorrat auffuellen:
+     Eigene Shop-Truhe OHNE Konfigurator rechtsklicken
+     -> Truhe oeffnet normal, Verkaufs-Items hineinlegen.
+
+ Kaufen (jeder Spieler):
+     Aktive Shop-Truhe eines anderen rechtsklicken.
+     -> Waehrung wird abgezogen, Item wird gegeben,
+        Erfolgs-/Fehlermeldung erscheint.
+
+
+============================================================
+ DATEN (Server, Ordner: plugins/ShopChest/)
+============================================================
+ plots.yml  - Plots (ID, Welt, Positionen, Besitzer, Mitglieder)
+ shops.yml  - Shops (Truhe, Besitzer, Plot, Item, Preis, Waehrung, aktiv)
+ config.yml - Konfigurator-/Selektor-Material, Waehrungsliste
+============================================================

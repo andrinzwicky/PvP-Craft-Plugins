@@ -1,0 +1,8 @@
+name: AntiCombatLog
+version: '${version}'
+main: com.pvpcraft.anticombatlog.AntiCombatLog
+api-version: '1.21'
+author: PvPCraft
+description: Markiert Spieler bei PvP fuer 30s im Kampf; Ausloggen im Kampf fuehrt zum Tod und Item-Drop.
+load: POSTWORLD
+softdepend: [RankManager]

@@ -1,0 +1,49 @@
+name: RankManager
+version: '${version}'
+main: com.pvpcraft.rankmanager.RankManager
+api-version: '1.21'
+author: PvPCraft
+description: Shows each player's rank as a gradient prefix in the tab list and enforces rank permissions internally.
+load: POSTWORLD
+
+commands:
+  rank:
+    description: Manage player ranks.
+    usage: |
+      /rank set <player> <rank> - assign a rank
+      /rank get <player> - show a player's rank
+      /rank list - list all ranks
+      /rank reload - reload config and reapply tab list
+    # No command-level permission gate: each sub-command checks its own rights
+    # internally (set -> canAssign, get/list -> canRead, reload -> hasAdmin), so
+    # Moderators can run the ranks they're allowed to manage while normal players
+    # get a clean "cannot-assign" response.
+
+permissions:
+  rankmanager.admin:
+    description: Access to all /rank commands.
+    default: op
+  rankmanager.rank.owner:
+    description: Marks the Owner rank.
+    default: false
+  rankmanager.rank.admin:
+    description: Marks the Admin rank.
+    default: false
+  rankmanager.rank.developer:
+    description: Marks the Developer rank.
+    default: false
+  rankmanager.rank.moderator:
+    description: Marks the Moderator rank.
+    default: false
+  rankmanager.rank.supporter:
+    description: Marks the Supporter rank.
+    default: false
+  rankmanager.rank.builder:
+    description: Marks the Builder rank.
+    default: false
+  rankmanager.rank.marketing:
+    description: Marks the Marketing rank.
+    default: false
+  rankmanager.rank.spieler:
+    description: Marks the Spieler (default) rank.
+    default: false

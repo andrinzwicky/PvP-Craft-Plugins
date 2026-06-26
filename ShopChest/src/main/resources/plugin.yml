@@ -1,0 +1,34 @@
+name: ShopChest
+version: '${version}'
+main: com.pvpcraft.shopchest.ShopChestPlugin
+api-version: '1.21'
+author: PvPCraft
+description: Plot-based chest shops. Players buy plots, place shop chests and sell items to others.
+load: POSTWORLD
+softdepend: [RankManager, WorldGuard]
+
+commands:
+  shopplot:
+    description: Manage shop plots (admin).
+    usage: |
+      /shopplot wand - get the selection shovel
+      /shopplot create <id> - create a plot from your selection
+      /shopplot delete <id> - delete a plot
+      /shopplot assign <id> <player> - assign a plot owner
+      /shopplot addmember <id> <player> - add a member to a plot
+      /shopplot removemember <id> <player> - remove a member from a plot
+      /shopplot list - list all plots
+      /shopplot info <id> - show plot details
+    permission: shopchest.admin
+  shopconfigurator:
+    description: Hand out the Shop Konfigurator item.
+    usage: /shopconfigurator give <player>
+    aliases: [shopconfig]
+  shop:
+    description: Open your shop management overview.
+    usage: /shop
+
+permissions:
+  shopchest.admin:
+    description: Access to all /shopplot commands and /shopconfigurator.
+    default: op

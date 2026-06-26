@@ -1,0 +1,15 @@
+name: AFKMode
+version: '${version}'
+main: com.pvpcraft.afkmode.AFKMode
+api-version: '1.21'
+author: PvPCraft
+description: AFK-Modus mit Positions-Pinning und Schadensschutz; liest den Combat-Status aus AntiCombatLog.
+load: POSTWORLD
+softdepend: [AntiCombatLog, RankManager]
+commands:
+  afk:
+    description: Aktiviert den AFK-Modus (nur ausserhalb des Kampfes, 3 Min nach Combat-Ende).
+    usage: /afk
+  afkstopp:
+    description: Beendet den AFK-Modus manuell.
+    usage: /afkstopp

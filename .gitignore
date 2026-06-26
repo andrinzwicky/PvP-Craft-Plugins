@@ -1,0 +1,23 @@
+# Build-Artefakte
+build/
+.gradle/
+out/
+target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Fremd-Plugins (nicht eigener Code)
+1 Fertige Plugins/CoreProtect-CE-*.jar
+1 Fertige Plugins/GSit-*.jar
+1 Fertige Plugins/worldedit-*.jar
+1 Fertige Plugins/worldguard-*.jar
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporäres Backup des verschachtelten RankManager-Repos (nicht committen)
+zRankManager/.git_DISABLED_DURING_IMPORT/

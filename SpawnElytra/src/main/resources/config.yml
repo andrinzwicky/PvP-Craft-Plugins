@@ -1,0 +1,32 @@
+# SpawnElytra configuration
+#
+# Launch zones are managed in-game. A player entering a zone is launched (their
+# chestplate is stashed and replaced with a tagged Elytra until they land again).
+#
+# Two zone shapes exist:
+#
+#  * Sphere  -> /spawnelytra setzone <name> <radius>
+#               (centred on the player; type defaults to sphere if omitted)
+#  * Cuboid  -> /spawnelytra wand            (gives the selection tool)
+#               left-click = point 1, right-click = point 2
+#               /spawnelytra setzone <name>  (builds the box from both points)
+#
+# Examples:
+# zones:
+#   spawn-sphere:
+#     type: sphere
+#     world: world
+#     x: 0.5
+#     y: 64.0
+#     z: 0.5
+#     radius: 15.0
+#   spawn-box:
+#     type: cuboid
+#     world: world
+#     min-x: -10.0
+#     min-y: 60.0
+#     min-z: -10.0
+#     max-x: 11.0
+#     max-y: 80.0
+#     max-z: 11.0
+zones: {}

@@ -1,0 +1,18 @@
+# Countdown in Sekunden, bevor der Teleport ausgeführt wird.
+warmup-seconds: 5
+# Cooldown in Sekunden nach erfolgreichem Teleport, bevor /spawn erneut geht.
+cooldown-seconds: 60
+
+messages:
+  prefix: "<gradient:#4ab0f5:#1ce0c8><bold>Spawn</bold></gradient> <dark_gray>»</dark_gray> "
+  start: "<gray>Teleport zum Spawn in <yellow><seconds>s</yellow> – <red>nicht bewegen<gray>!"
+  # Wird jede Sekunde in der Action-Bar angezeigt.
+  countdown: "<gray>Teleport in <yellow><seconds></yellow> <gray>...</gray>"
+  teleported: "<green>Du wurdest zum Spawn teleportiert."
+  cancelled-move: "<red>✖ Teleport abgebrochen – du hast dich bewegt."
+  cancelled-damage: "<red>✖ Teleport abgebrochen – du hast Schaden genommen."
+  already: "<red>Es läuft bereits ein Teleport zum Spawn."
+  cooldown: "<red>Du musst noch <yellow><seconds>s</yellow> warten, bevor du wieder /spawn nutzen kannst."
+  no-permission: "<red>Dazu hast du keine Berechtigung."
+  only-players: "<red>Nur Spieler können /spawn nutzen."
+  no-spawn-world: "<red>Es konnte keine Spawn-Welt gefunden werden."

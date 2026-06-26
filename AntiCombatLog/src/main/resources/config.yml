@@ -1,0 +1,11 @@
+# AntiCombatLog configuration.
+
+# How long (in seconds) a player stays in combat after the last PvP hit.
+# Each new PvP hit resets the countdown back to this value.
+combat-duration-seconds: 30
+
+# Command roots that are blocked while in combat because they teleport the
+# player to spawn. Compared case-insensitively against the typed command
+# (without the leading slash), so "/spawn", "/Spawn 1" etc. are all caught.
+blocked-spawn-commands:
+  - spawn

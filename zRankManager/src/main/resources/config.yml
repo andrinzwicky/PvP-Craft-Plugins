@@ -1,0 +1,151 @@
+# ============================================================================
+#  RankManager configuration
+# ============================================================================
+#
+#  Each rank has:
+#    display    - the text shown inside the [ ] brackets in the tab list
+#    colors     - one or more hex colors. One color = solid, two or more =
+#                 a continuous MiniMessage gradient applied across the WHOLE
+#                 "[Rank] Playername" string.
+#    priority   - sort order in the tab list (lowest number = top)
+#    permission - the permission node that marks this rank
+#    default    - true for the rank new players receive if none is stored
+#    extra-permissions - optional list of additional permission nodes granted to
+#                 this rank on top of its built-in abilities. Useful for granting
+#                 nodes of other plugins (e.g. coreprotect.inspect). These are
+#                 applied via a Bukkit PermissionAttachment on join and on every
+#                 rank change, exactly like the built-in permissions.
+#
+#  Ability/permission enforcement (gamemodes, /tp, /kick, /ban, /mute, who may
+#  assign which rank, etc.) is handled internally by the plugin and is keyed by
+#  the rank id (the key under "ranks:"). Renaming a key removes its abilities.
+# ============================================================================
+
+ranks:
+  owner:
+    display: "Owner"
+    colors: ["#f0e000", "#00ff88"]
+    priority: 1
+    permission: "rankmanager.rank.owner"
+    default: false
+    extra-permissions:
+      - coreprotect.inspect
+      - coreprotect.lookup
+      - coreprotect.rollback
+      - coreprotect.restore
+  admin:
+    display: "Admin"
+    colors: ["#ff2200", "#4400ff", "#aa00ff"]
+    priority: 2
+    permission: "rankmanager.rank.admin"
+    default: false
+    extra-permissions:
+      - coreprotect.inspect
+      - coreprotect.lookup
+      - coreprotect.rollback
+      - coreprotect.restore
+  developer:
+    display: "Developer"
+    colors: ["#ffaa00", "#ff6600"]
+    priority: 3
+    permission: "rankmanager.rank.developer"
+    default: false
+    extra-permissions:
+      - coreprotect.inspect
+      - coreprotect.lookup
+      - coreprotect.rollback
+      - coreprotect.restore
+  moderator:
+    display: "Moderator"
+    colors: ["#cc00ff", "#ff44aa"]
+    priority: 4
+    permission: "rankmanager.rank.moderator"
+    default: false
+    extra-permissions:
+      - coreprotect.inspect
+      - coreprotect.lookup
+      - coreprotect.rollback
+  supporter:
+    display: "Supporter"
+    colors: ["#ffcc00", "#ffaa00"]
+    priority: 5
+    permission: "rankmanager.rank.supporter"
+    default: false
+    extra-permissions:
+      - coreprotect.inspect
+      - coreprotect.lookup
+  builder:
+    display: "Builder"
+    colors: ["#00cc44", "#88ff44"]
+    priority: 6
+    permission: "rankmanager.rank.builder"
+    default: false
+  marketing:
+    display: "Marketing"
+    colors: ["#88ff44", "#00cc44"]
+    priority: 7
+    permission: "rankmanager.rank.marketing"
+    default: false
+  spieler:
+    display: "Spieler"
+    colors: ["#ffffff"]
+    priority: 8
+    permission: "rankmanager.rank.spieler"
+    default: true
+    extra-permissions:
+      - coreprotect.inspect
+
+# Tab list header and footer. Each entry is one line, parsed with MiniMessage.
+# Leave the list empty ([]) to clear the header or footer.
+tablist:
+  header:
+    - "<gradient:#f0e000:#00ff88><bold>PvP Craft</bold></gradient>"
+    - "<gray>Welcome to the server!</gray>"
+  footer:
+    - "<gray>play.pvpcraft.example</gray>"
+
+# ============================================================================
+#  Chat format
+# ============================================================================
+#  Rendered with MiniMessage. Available placeholders:
+#    <rank>    - the gradient "[Rank]" prefix (rank colors from above)
+#    <player>  - the player's name
+#    <clan>    - " [ClanTag]" in the clan color, OR nothing if the player has no
+#                clan / the ClanSystem plugin is not installed. Note the leading
+#                space is part of the tag, so the format below never leaves a
+#                dangling space when there is no clan.
+#    <message> - the chat message (player text is shown literally and is NEVER
+#                parsed as MiniMessage, so players cannot inject colors or tags).
+#
+#  Default reads:  [Rank] Playername [ClanTag]: message
+# ----------------------------------------------------------------------------
+chat:
+  format: "<rank> <player><clan>: <message>"
+
+# ----------------------------------------------------------------------------
+#  ClanSystem integration (optional, no hard dependency)
+# ----------------------------------------------------------------------------
+#  The clan tag shown in the over-head nametag and in chat is read from two
+#  Bukkit metadata values that the separate ClanSystem plugin sets on a player:
+#    clan_tag   - the short tag text, e.g. "ACE"
+#    clan_color - the tag color: a hex string ("#ff5555") or a vanilla color
+#                 name ("red"); optional, defaults to white.
+#  If ClanSystem is not installed these are simply never set and the clan tag is
+#  skipped silently everywhere. Nothing here needs configuring.
+
+# How often (in server ticks) to re-check every online player's op status so
+# that gaining/losing /op automatically grants/removes the Owner rank.
+# 20 ticks = 1 second.
+op-check-interval-ticks: 20
+
+messages:
+  prefix: "<gray>[<gradient:#f0e000:#00ff88>RankManager</gradient>]</gray> "
+  no-permission: "<red>You do not have permission to do that.</red>"
+  player-not-found: "<red>Player not found: <white><player></white></red>"
+  rank-not-found: "<red>Unknown rank: <white><rank></white></red>"
+  rank-set: "<green>Set <white><player></white>'s rank to <white><rank></white>.</green>"
+  rank-get: "<green><white><player></white>'s rank is <white><rank></white>.</green>"
+  cannot-assign: "<red>You are not allowed to assign the <white><rank></white> rank.</red>"
+  reloaded: "<green>Configuration reloaded and tab list reapplied.</green>"
+  gamemode-denied: "<red>Your rank may not use that gamemode.</red>"
+  tp-denied: "<red>You may only teleport while in spectator mode.</red>"

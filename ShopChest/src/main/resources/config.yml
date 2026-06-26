@@ -1,0 +1,30 @@
+# ShopChest configuration
+
+# When true, logs a diagnostic line whenever a player right-clicks a chest with
+# the Shop Konfigurator: the chest location, whether a plot was found, the plot
+# cuboid with per-axis containment, and the owner/player UUID comparison. Use it
+# to debug "Du hast keine Berechtigung hier einen Shop zu erstellen". Leave false
+# in normal operation.
+debug: false
+
+configurator:
+  # Base material for the "Shop Konfigurator" item.
+  material: COMPARATOR
+  # Custom model data applied to the configurator item (0 = none).
+  # Set up your resource pack to swap the model on this value.
+  custom-model-data: 1001
+
+selector:
+  # Material used for the plot selection wand (WorldEdit-style).
+  material: GOLDEN_SHOVEL
+
+# Currencies that the Shop Setup GUI cycles through (slot 3).
+# Any vanilla item material is allowed. First entry is the default.
+currencies:
+  - DIAMOND
+  - DIAMOND_BLOCK
+  - EMERALD
+  - EMERALD_BLOCK
+  - GOLD_INGOT
+  - IRON_INGOT
+  - NETHERITE_INGOT

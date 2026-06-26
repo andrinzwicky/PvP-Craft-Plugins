@@ -1,0 +1,27 @@
+name: BaseProtect
+version: '${version}'
+main: com.pvpcraft.baseprotect.BaseProtectPlugin
+api-version: '1.21'
+author: PvPCraft
+description: WorldGuard-backed player bases with an owner/leader/member hierarchy. Regions use the base_ namespace, strictly separate from ShopChest's plot_ regions.
+load: POSTWORLD
+softdepend: [RankManager, WorldGuard, WorldEdit]
+
+commands:
+  base:
+    description: Define, manage and inspect player bases.
+    usage: |
+      /base define <id> - create a base from your //wand selection (admin)
+      /base setowner <id> <player> - set the base owner (admin)
+      /base delete <id> - delete a base, region and data (admin)
+      /base setleader <player> - promote a member to leader (owner)
+      /base removeleader <player> - demote a leader (owner)
+      /base invite <player> - add a member (owner/leader)
+      /base kick <player> - remove a member (owner/leader)
+      /base leave - leave the base you stand in (member)
+      /base info <id> - show owner/leaders/members (everyone)
+
+permissions:
+  baseprotect.admin:
+    description: Access to the admin /base subcommands (define, setowner, delete).
+    default: op

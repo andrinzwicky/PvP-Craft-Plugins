@@ -1,0 +1,8 @@
+# ClanSystem configuration.
+
+# When true, ClanSystem logs a diagnostic line every time it (re)applies a
+# player's over-head nametag, showing the clan_tag/clan_color metadata and
+# whether RankManager handled the nametag (refreshDisplay) or the built-in
+# scoreboard fallback was used. Use this to debug "clan tag not showing above
+# the head". Leave false in normal operation; it logs on the periodic refresh.
+debug: false

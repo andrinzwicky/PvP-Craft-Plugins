@@ -1,0 +1,28 @@
+name: Invsee
+version: '${version}'
+main: com.pvpcraft.invsee.Invsee
+api-version: '1.21'
+author: PvPCraft
+description: Read-only and editable viewing of player inventories and enderchests.
+load: POSTWORLD
+softdepend: [RankManager]
+
+commands:
+  invsee:
+    description: Opens a read-only view of a player's inventory.
+    usage: /invsee <player>
+  invsee+:
+    description: Opens an editable view of a player's inventory.
+    usage: /invsee+ <player>
+  echest:
+    description: Opens a read-only view of a player's enderchest.
+    usage: /echest <player>
+  echest+:
+    description: Opens an editable view of a player's enderchest.
+    usage: /echest+ <player>
+
+# Access is governed entirely by the RankManager rank nodes below, which each
+# player receives through their rank. The plugin therefore degrades gracefully
+# when RankManager is absent: the nodes are simply never granted (only ops keep
+# access). The plugin does not declare these nodes itself so it never collides
+# with RankManager's own declarations.

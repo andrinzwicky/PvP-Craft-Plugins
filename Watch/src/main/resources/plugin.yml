@@ -1,0 +1,24 @@
+name: Watch
+version: '${version}'
+main: com.pvpcraft.watch.Watch
+api-version: '1.21'
+author: PvPCraft
+description: Beobachte Spieler im Spectator-Modus, gebunden an einen 100-Block-Radius. Der beobachtete Spieler wird nicht benachrichtigt.
+load: POSTWORLD
+softdepend: [RankManager, GSit]
+
+commands:
+  watch:
+    description: Beobachtet einen Spieler im Spectator-Modus (Radius 100 Blöcke).
+    usage: /watch <spieler>
+  unwatch:
+    description: Beendet die Beobachtung und stellt vorherige Position und Spielmodus wieder her.
+    usage: /unwatch
+
+permissions:
+  watch.use:
+    description: >-
+      Erlaubt die Nutzung von /watch. Zusaetzlich duerfen alle Team-Raenge
+      (Supporter/Moderator/Developer/Admin/Owner) den Befehl automatisch ueber
+      ihre rankmanager.rank.*-Nodes nutzen.
+    default: op

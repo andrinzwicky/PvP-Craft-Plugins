@@ -1,0 +1,84 @@
+============================================================
+ ShopChest - Befehle & Anleitung fuer SPIELER
+============================================================
+
+
+------------------------------------------------------------
+ BEFEHL
+------------------------------------------------------------
+ /shop
+     Oeffnet deine Shop-Uebersicht.
+     - Zeigt alle deine Shops (anklicken = bearbeiten)
+     - Zeigt Item, Preis, Waehrung, Vorrat und ob aktiv
+     - Knopf "Mitglied einladen": Namen im Chat eingeben,
+       damit dieser Spieler deine Shops ANSEHEN darf
+       (er kann sie nicht bearbeiten)
+
+
+------------------------------------------------------------
+ SO BEKOMMST DU EIN PLOT
+------------------------------------------------------------
+ Plots werden von einem Admin vergeben. Sobald dir eines
+ zugewiesen wurde, darfst nur DU dort Shops einrichten.
+
+
+------------------------------------------------------------
+ SHOP EINRICHTEN  (kein Befehl noetig)
+------------------------------------------------------------
+ 1. Stelle eine Truhe auf deinem Plot auf.
+ 2. Nimm den "Shop Konfigurator" in die Hand.
+    Du bekommst ihn vom Admin ODER craftest ihn selbst:
+
+        I I I
+        I C I     I = IRON_INGOT   C = CHEST (Truhe)
+        I I I
+        Ergebnis: 1x Shop Konfigurator
+ 3. RECHTSKLICK mit dem Konfigurator auf die Truhe.
+    -> Menue "Shop einrichten" oeffnet sich:
+
+    Slot 1: Verkaufs-Item
+            Anklicken, dann ein Item in deinem Inventar
+            anklicken. Die Stueckzahl des angeklickten
+            Stapels = Menge pro Kauf.
+    Slot 2: Preis
+            Anklicken, dann den Betrag in den Chat tippen.
+            ("abbrechen" bricht ab)
+    Slot 3: Waehrung
+            Linksklick = naechste, Rechtsklick = vorherige.
+    Slot 4: Vorrat
+            Zeigt, wie viele Verkaufs-Items in der Truhe sind.
+    Slot 5: Aktiv / Inaktiv
+            Anklicken zum Umschalten (erst Item setzen!).
+    Slot 6: Shop loeschen
+            Shift-Klick zum Bestaetigen.
+
+
+------------------------------------------------------------
+ VORRAT AUFFUELLEN
+------------------------------------------------------------
+ Rechtsklicke deine eigene Shop-Truhe OHNE den Konfigurator
+ in der Hand -> die Truhe oeffnet sich normal.
+ Lege deine Verkaufs-Items hinein.
+ Die Bezahlung der Kaeufer landet ebenfalls in der Truhe.
+
+
+------------------------------------------------------------
+ ETWAS KAUFEN
+------------------------------------------------------------
+ Rechtsklicke die aktive Shop-Truhe eines anderen Spielers.
+ - Genug Waehrung im Inventar?  -> Kauf sofort, Item kommt
+   in dein Inventar (oder faellt dir vor die Fuesse, wenn
+   voll).
+ - Nicht genug Waehrung / kein Vorrat / inaktiv -> Hinweis
+   im Chat.
+
+
+------------------------------------------------------------
+ MITGLIEDER (Freunde einladen)
+------------------------------------------------------------
+ Im /shop-Menue auf "Mitglied einladen" klicken und den
+ Namen im Chat eingeben. Dein Mitglied sieht deine Shops
+ dann ebenfalls unter /shop - kann sie aber nur ANSEHEN,
+ nicht bearbeiten.
+
+============================================================

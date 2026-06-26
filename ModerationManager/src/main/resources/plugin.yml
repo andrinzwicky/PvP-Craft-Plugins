@@ -1,0 +1,34 @@
+name: ModerationManager
+version: '${version}'
+main: com.pvpcraft.moderation.ModerationManager
+api-version: '1.21'
+author: PvPCraft
+description: Moderationsbefehle (/warn) mit gemeinsamer Verlaufshistorie aus Warns, Kicks und Bans. Erweiterbar.
+load: POSTWORLD
+softdepend: [RankManager]
+
+commands:
+  warn:
+    description: Verwarnt einen Spieler. Sichtbar fuer den Spieler und das Team.
+    usage: /warn <spieler> <grund>
+  warns:
+    description: Zeigt die Moderations-Historie (Warns, Kicks, Bans, Mutes) eines Spielers.
+    usage: /warns <spieler>
+    aliases: [history, modlog]
+  unwarn:
+    description: Entfernt eine Verwarnung (neueste oder per Nummer aus /warns).
+    usage: /unwarn <spieler> [nummer]
+  mute:
+    description: Schaltet einen Spieler fuer eine Dauer in Chat und PNs stumm.
+    usage: /mute <spieler> <dauer> [grund]
+  unmute:
+    description: Hebt die Stummschaltung eines Spielers auf.
+    usage: /unmute <spieler>
+
+permissions:
+  moderation.use:
+    description: >-
+      Erlaubt die Nutzung der Moderationsbefehle (/warn, /warns). Zusaetzlich
+      duerfen alle Team-Raenge (Supporter/Moderator/Developer/Admin/Owner) diese
+      Befehle automatisch ueber ihre rankmanager.rank.*-Nodes nutzen.
+    default: op

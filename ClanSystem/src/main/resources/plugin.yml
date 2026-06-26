@@ -1,0 +1,29 @@
+name: ClanSystem
+version: '${version}'
+main: com.pvpcraft.clansystem.ClanSystem
+api-version: '1.21'
+author: PvPCraft
+description: Players create and join clans; the clan tag is shown after their name in chat and the tab list.
+load: POSTWORLD
+
+# RankManager is an optional soft dependency: if present, ClanSystem reads the
+# rank prefix from it (via reflection) so the tab/chat line reads
+# "[Rank] Player [Tag]". If absent, the rank prefix is simply omitted.
+softdepend: [RankManager]
+
+commands:
+  clan:
+    description: Create and manage clans.
+    usage: |
+      /clan create <name>         - create a clan (you become Owner)
+      /clan delete                - delete your clan (Owner only)
+      /clan invite <player>       - invite a player (Owner/Leader)
+      /clan accept                - open the invite menu and join a clan
+      /clan kick <player>         - remove a member (Owner/Leader)
+      /clan leave                 - leave your clan
+      /clan setadmin <player>     - promote a Member to Leader (Owner only)
+      /clan removeadmin <player>  - demote a Leader to Member (Owner only)
+      /clan info                  - show your clan's info
+      /clan setcolor <color>      - set the clan tag color (Owner only)
+      /clan settag <tag>          - set the clan tag, max 10 chars (Owner only)
+    aliases: [clans]

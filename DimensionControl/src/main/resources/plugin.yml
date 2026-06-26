@@ -1,0 +1,22 @@
+name: DimensionControl
+version: '${project.version}'
+main: com.pvpcraft.dimensioncontrol.DimensionControl
+api-version: '1.21'
+author: PvPCraft
+description: Enable or disable the Nether and the End at runtime. Blocks portals and evacuates players from disabled dimensions.
+load: POSTWORLD
+softdepend: [RankManager]
+
+commands:
+  dimension:
+    description: Enable, disable or inspect the Nether and the End.
+    usage: /dimension <enable|disable> <nether|end> | /dimension status | /dimension reload
+    # No command-level permission gate: access is checked in code so that the
+    # Admin / Developer / Owner ranks (rankmanager.rank.*) qualify even without op.
+    # Holders of dimensioncontrol.admin (default: op) and the console also qualify.
+    aliases: [dim]
+
+permissions:
+  dimensioncontrol.admin:
+    description: Full access to /dimension (in addition to Admin/Developer/Owner ranks).
+    default: op

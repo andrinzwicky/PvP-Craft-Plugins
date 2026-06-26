@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.pvpcraft'
+version = '1.0.0'
+description = 'AFKMode - AFK-Modus mit Positions-Pinning, Schadensschutz und Combat-Sperre'
+
+// Paper 1.21.11 requires Java 21+. We compile with `--release 21` so the build
+// works on any JDK >= 21 and still produces Java 21 bytecode that runs on a
+// Paper 1.21 server.
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    // API only - no NMS, so no reobfJar / remapping is needed.
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+// We deliberately do NOT use paperweight / reobfJar. The plain `jar` task
+// produces a Mojang-mapped plugin compatible with
+// -Dpaper.disablePluginRemapping=true.
+tasks.named('jar') {
+    archiveBaseName = 'AFKMode'
+}

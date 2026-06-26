@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.pvpcraft'
+version = '1.0.0'
+description = 'BaseProtect - WorldGuard-backed player bases for Paper'
+
+// Paper 1.21.11 requires Java 21+. We compile with `--release 21` so the build
+// works on any JDK >= 21 (including the JDK 25 used here) and still produces
+// Java 21 bytecode that runs on a Paper 1.21 server.
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        // WorldGuard / WorldEdit API.
+        name = 'enginehub'
+        url = 'https://maven.enginehub.org/repo/'
+    }
+}
+
+dependencies {
+    // API only - no NMS, so no reobfJar / remapping is needed.
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+
+    // Soft dependencies: compiled against, never bundled. The plugin runs fine
+    // without them present (region work is then skipped at runtime). WorldGuard
+    // is what we create the base_ regions in; WorldEdit provides the //wand
+    // selection that /base define reads. The runtime server ships WorldGuard
+    // 7.0.17 + WorldEdit 7.4.x; we compile against the API WG 7.0.17 was built
+    // against, which is binary-compatible with the newer WorldEdit at runtime.
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.17'
+    compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.3.0'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+// We deliberately do NOT use paperweight / reobfJar. The plain `jar` task
+// produces a Mojang-mapped plugin compatible with
+// -Dpaper.disablePluginRemapping=true.
+tasks.named('jar') {
+    archiveBaseName = 'BaseProtect'
+}

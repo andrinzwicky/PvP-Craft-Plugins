@@ -1,0 +1,79 @@
+# ============================================================================
+#  ModerationManager configuration
+# ============================================================================
+#
+#  Befehle:
+#    /warn <spieler> <grund>  - verwarnt einen Spieler. Die Verwarnung sehen
+#                               nur der Spieler selbst und das gesamte Team
+#                               (Supporter und hoeher). Builder/Marketing/Spieler
+#                               sehen sie NICHT.
+#    /warns <spieler>         - zeigt die komplette Historie (Warns, Kicks, Bans).
+#
+#  Wer darf das nutzen? Jeder mit der Permission "moderation.use" (default: op)
+#  sowie automatisch alle Team-Raenge ueber ihre rankmanager.rank.*-Nodes
+#  (supporter, moderator, developer, admin, owner).
+#
+#  Alle Nachrichten werden mit MiniMessage geparst. Platzhalter stehen in
+#  <spitzen Klammern> und werden zur Laufzeit ersetzt.
+# ============================================================================
+
+# Zeitformat fuer die Historie (java.time DateTimeFormatter-Muster).
+date-format: "dd.MM.yyyy HH:mm"
+
+# Logging privater Nachrichten (/msg, /tell, /r ...).
+#
+#  WICHTIG (Datenschutz): Private Nachrichten sind personenbezogene Daten. Das
+#  Mitloggen ist auf dem eigenen Server zulaessig, MUSS aber den Spielern
+#  offengelegt werden (Serverregeln / Datenschutzhinweis), z.B.:
+#  "Chat- und Privatnachrichten werden zu Moderationszwecken gespeichert."
+#  Zugriff nur fuers Team. Auf "false" setzen, um das Logging zu deaktivieren.
+message-logging:
+  enabled: true
+  file: "private-messages.log"
+
+messages:
+  prefix: "<gray>[<gradient:#ff3333:#ffaa00>Mod</gradient>]</gray> "
+
+  no-permission: "<red>Dazu hast du keine Berechtigung.</red>"
+  player-not-found: "<red>Spieler nicht gefunden: <white><player></white></red>"
+
+  # --- /warn ---------------------------------------------------------------
+  warn-usage: "<gray>Benutzung: <white>/warn <spieler> <grund></white></gray>"
+  # Nachricht an den verwarnten Spieler selbst.
+  warn-target: "<red><bold>Du wurdest verwarnt!</bold></red> <gray>Grund:</gray> <white><reason></white> <dark_gray>(von <moderator>, Verwarnung #<count>)</dark_gray>"
+  # Nachricht an das gesamte Team.
+  warn-team: "<yellow><white><player></white> wurde von <white><moderator></white> verwarnt.</yellow> <gray>Grund:</gray> <white><reason></white> <dark_gray>(Verwarnung #<count>)</dark_gray>"
+  # Bestaetigung an die Konsole (Spieler sehen bereits den Team-Broadcast).
+  warn-confirm: "<green><white><player></white> wurde verwarnt.</green> <gray>Grund:</gray> <white><reason></white>"
+
+  # --- /warns --------------------------------------------------------------
+  warns-usage: "<gray>Benutzung: <white>/warns <spieler></white></gray>"
+  warns-empty: "<green><white><player></white> hat keine Eintraege in der Historie.</green>"
+  warns-header: "<gray>Historie von <white><player></white> — <white><total></white> Eintraege <dark_gray>(<yellow><warns></yellow> Warns, <gold><kicks></gold> Kicks, <red><bans></red> Bans)</dark_gray></gray>"
+
+  # --- /unwarn -------------------------------------------------------------
+  unwarn-usage: "<gray>Benutzung: <white>/unwarn <spieler> [nummer]</white></gray>"
+  unwarn-none: "<green><white><player></white> hat keine Eintraege in der Historie.</green>"
+  unwarn-no-warns: "<yellow><white><player></white> hat keine Verwarnungen zum Entfernen.</yellow>"
+  unwarn-bad-number: "<red>Ungueltige Nummer: <white><input></white>. Erlaubt: 1-<total>.</red>"
+  unwarn-not-a-warn: "<red>Eintrag #<number> ist eine <white><type></white> und kann nicht per /unwarn entfernt werden.</red>"
+  unwarn-done: "<green>Verwarnung von <white><player></white> entfernt.</green> <dark_gray>(Grund war: <reason>, verbleibend: <count>)</dark_gray>"
+  unwarn-team: "<aqua><white><moderator></white> hat eine Verwarnung von <white><player></white> entfernt. <dark_gray>(verbleibend: <count>)</dark_gray></aqua>"
+
+  # --- /mute ---------------------------------------------------------------
+  mute-usage: "<gray>Benutzung: <white>/mute <spieler> <dauer> [grund]</white></gray> <dark_gray>(Dauer z.B. 30m, 2h, 1d, perm)</dark_gray>"
+  mute-bad-duration: "<red>Ungueltige Dauer: <white><input></white>. Beispiele: <white>30m</white>, <white>2h</white>, <white>1d</white>, <white>perm</white>.</red>"
+  # Nachricht an den stummgeschalteten Spieler beim Muten.
+  mute-target: "<aqua><bold>Du wurdest fuer <duration> stummgeschaltet.</bold></aqua> <gray>Grund:</gray> <white><reason></white><newline><gray>Wenn du das fuer ungerechtfertigt haeltst, schreibe bitte ein Ticket.</gray>"
+  # Nachricht an das Team.
+  mute-team: "<aqua><white><player></white> wurde von <white><moderator></white> fuer <duration> stummgeschaltet.</aqua> <gray>Grund:</gray> <white><reason></white>"
+  mute-confirm: "<green><white><player></white> wurde fuer <duration> stummgeschaltet.</green>"
+  # Hinweis, wenn ein gemuteter Spieler zu schreiben versucht (Chat oder PN).
+  muted-notice: "<red>Du bist noch <duration> stummgeschaltet.</red> <gray>Schreibe ein Ticket, wenn es ungerechtfertigt ist.</gray>"
+
+  # --- /unmute -------------------------------------------------------------
+  unmute-usage: "<gray>Benutzung: <white>/unmute <spieler></white></gray>"
+  unmute-notmuted: "<yellow><white><player></white> ist nicht stummgeschaltet.</yellow>"
+  unmute-target: "<green>Deine Stummschaltung wurde aufgehoben.</green>"
+  unmute-team: "<green><white><player></white> wurde von <white><moderator></white> entstummt.</green>"
+  unmute-confirm: "<green><white><player></white> wurde entstummt.</green>"

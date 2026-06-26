@@ -1,0 +1,24 @@
+name: SpawnTP
+version: '${version}'
+main: com.pvpcraft.spawn.SpawnTP
+api-version: '1.21'
+author: PvPCraft
+description: /spawn mit Countdown, Abbruch bei Bewegung/Schaden und Cooldown.
+load: POSTWORLD
+softdepend: [RankManager]
+
+commands:
+  spawn:
+    description: Teleportiert dich nach kurzem Countdown zum Spawn.
+    usage: /spawn
+
+permissions:
+  spawn.use:
+    description: Erlaubt die Nutzung von /spawn.
+    default: true
+  spawn.bypasscooldown:
+    description: >-
+      Umgeht den Cooldown nach dem Teleport (der Countdown bleibt). Zusätzlich
+      umgehen Supporter/Moderator/Developer/Admin/Owner den Cooldown automatisch
+      über ihre rankmanager.rank.*-Nodes.
+    default: op
