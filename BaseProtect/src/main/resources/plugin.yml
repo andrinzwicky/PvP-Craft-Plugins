@@ -2,7 +2,7 @@ name: BaseProtect
 version: '${version}'
 main: com.pvpcraft.baseprotect.BaseProtectPlugin
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: WorldGuard-backed player bases with an owner/leader/member hierarchy. Regions use the base_ namespace, strictly separate from ShopChest's plot_ regions.
 load: POSTWORLD
 softdepend: [RankManager, WorldGuard, WorldEdit]

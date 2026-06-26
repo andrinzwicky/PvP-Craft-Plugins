@@ -2,7 +2,7 @@ name: ClanSystem
 version: '${version}'
 main: com.pvpcraft.clansystem.ClanSystem
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Players create and join clans; the clan tag is shown after their name in chat and the tab list.
 load: POSTWORLD
 

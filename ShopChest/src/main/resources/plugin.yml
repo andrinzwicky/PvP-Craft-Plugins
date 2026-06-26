@@ -2,7 +2,7 @@ name: ShopChest
 version: '${version}'
 main: com.pvpcraft.shopchest.ShopChestPlugin
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Plot-based chest shops. Players buy plots, place shop chests and sell items to others.
 load: POSTWORLD
 softdepend: [RankManager, WorldGuard]

@@ -2,7 +2,7 @@ name: AFKMode
 version: '${version}'
 main: com.pvpcraft.afkmode.AFKMode
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: AFK-Modus mit Positions-Pinning und Schadensschutz; liest den Combat-Status aus AntiCombatLog.
 load: POSTWORLD
 softdepend: [AntiCombatLog, RankManager]

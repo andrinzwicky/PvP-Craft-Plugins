@@ -2,7 +2,7 @@ name: DimensionControl
 version: '${project.version}'
 main: com.pvpcraft.dimensioncontrol.DimensionControl
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Enable or disable the Nether and the End at runtime. Blocks portals and evacuates players from disabled dimensions.
 load: POSTWORLD
 softdepend: [RankManager]

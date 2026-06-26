@@ -2,7 +2,7 @@ name: Invsee
 version: '${version}'
 main: com.pvpcraft.invsee.Invsee
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Read-only and editable viewing of player inventories and enderchests.
 load: POSTWORLD
 softdepend: [RankManager]

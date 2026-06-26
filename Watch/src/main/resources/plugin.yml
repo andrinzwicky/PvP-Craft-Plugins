@@ -2,7 +2,7 @@ name: Watch
 version: '${version}'
 main: com.pvpcraft.watch.Watch
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Beobachte Spieler im Spectator-Modus, gebunden an einen 100-Block-Radius. Der beobachtete Spieler wird nicht benachrichtigt.
 load: POSTWORLD
 softdepend: [RankManager, GSit]

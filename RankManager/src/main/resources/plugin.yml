@@ -2,7 +2,7 @@ name: RankManager
 version: '${version}'
 main: com.pvpcraft.rankmanager.RankManager
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Shows each player's rank as a gradient prefix in the tab list and enforces rank permissions internally.
 load: POSTWORLD
 

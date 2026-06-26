@@ -2,7 +2,7 @@ name: ModerationManager
 version: '${version}'
 main: com.pvpcraft.moderation.ModerationManager
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Moderationsbefehle (/warn) mit gemeinsamer Verlaufshistorie aus Warns, Kicks und Bans. Erweiterbar.
 load: POSTWORLD
 softdepend: [RankManager]

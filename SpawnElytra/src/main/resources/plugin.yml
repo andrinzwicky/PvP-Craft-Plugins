@@ -2,7 +2,7 @@ name: SpawnElytra
 version: '${version}'
 main: com.pvpcraft.spawnelytra.SpawnElytra
 api-version: '1.21'
-author: PvPCraft
+author: Andrin Zwicky
 description: Launch-Zonen, die Spielern eine getaggte Elytra geben und sie bei der Landung wieder entfernen.
 load: POSTWORLD
 
